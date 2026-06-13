@@ -535,7 +535,8 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
       ),
       validator: (v) {
         if (v == null || v.isEmpty) return 'Vui lòng nhập số tiền';
-        if (double.tryParse(v) == null || double.parse(v) <= 0)
+        final cleanV = v.replaceAll('.', '');
+        if (double.tryParse(cleanV) == null || double.parse(cleanV) <= 0)
           return 'Số tiền không hợp lệ';
         return null;
       },
